@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta ch="utf-8">
+    <style>
+        #myInput {
+            background-image:
+                    url('/img/search.png');
+
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #myUL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #myUL li a {
+            border: 1px solid #ddd;
+            margin-top: -1px;
+            background-color: #f6f6f6;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block
+        }
+
+        #myUL li a.header {
+            background-color: #e2e2e2;
+            cursor: default;
+        }
+
+        #myUL li a:hover:not(.header) {
+            background-color: #eee;
+        }
+        #myaL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #myaL li a {
+            border: 1px solid #ddd;
+            margin-top: -1px;
+            background-color: #f6f6f6;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block
+        }
+
+        #myaL li a.header {
+            background-color: #E2E2E2;
+            cursor: default;
+        }
+
+        #myaL li a:hover:not(.header) {
+            background-color: #eee;
+        }
+
+
+
+    </style>
+    <style>
+
+        body {
+            font-family: "Lato", sans-serif;
+            transition: background-color .5s;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s
+        }
+
+        .sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+        .sidenav b {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s
+        }
+
+        .sidenav b:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px){
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+
+    </style>
+    <style>
+        #myUL li a {
+            background-color: #48d1cc;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+
+
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #4682b4;
+        }
+
+        /* Center the image and position
+        the close button */
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* The Modal (background) */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button (x) */
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {-webkit-transform: scale(0)}
+            to {-webkit-transform: scale(1)}
+        }
+
+        @keyframes animatezoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        /* Change styles for span and cancel
+        button on extra small screens */
+
+        @media screen and(max-width: 300px){
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+<body>
+
+<div id="id01" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id01')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Ambringola</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Burro; Aquele que nao pensa; O ultimo burro; Boelo; Tarla; Buana.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Brasil</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>04/12/2018</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id01').style.
+
+ display='none'" class="cancelbtn">
+                Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id01');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+<body>
+
+<div id="id02" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id02')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Angwile</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Abstrato; Que nao tem forma fixa. Forma que nao se entende; Sem aparencia.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</2>
+            <h3>Angola</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/02/2018</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id02').style.
+
+ display='none'" class="cancelbtn">
+                OK</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id02');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id03" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id03')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Alombue</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Comida feita com fuba. Comida da regiao alombista</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Cabo Verde</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/06/2017</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id03').style.
+
+ display='none'" class="cancelbtn">
+                OK</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id03');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id04" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id04')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Buana</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Burro, boelo, tarla, burro ao quadrado, burro ao cubo, bem burro mesmo.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Funduras de Angola</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>15/02/2018</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id04').style.
+
+ display='none'" class="cancelbtn">
+                Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id04');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id05" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id05')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Boelo</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Boelo e Buana mesmo.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Angola</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/02/2016</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id05').style.
+
+ display='none'" class="cancelbtn">
+                OK</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id05');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id06" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id06')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Bwenguele</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Bicho que pica. Bicho perigoso, maribondo.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Angola</h3>
+
+            <h2>PUBLICADO AOS:</h3>
+                <h3>05/02/2008</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id06').style.
+
+ display='none'" class="cancelbtn">
+                Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id06');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id07" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id07')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Bengo</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Uma das 18 provincias de Angola. Bengo significa companheiro.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Angola</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/02/2018</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id07').style.
+
+ display='none'" class="cancelbtn">
+                OK</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id07');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id08" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id08')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Bwenguela</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Chuva; Agua que cai do ceu; Agua divina.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Brasil</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/12/2018</h3>
+
+        </div>
+
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id08').style.
+
+ display='none'" class="cancelbtn">
+                OK</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id08');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id08" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id08')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Buala</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Aldeia, rua. Local onde vive um pequeno grupo de pessoas.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Sao Tome e Principe</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/02/2018</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id08').style.
+
+ display='none'" class="cancelbtn">
+                Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id08');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id09" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id09')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Cangue</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Oferecida, intrometida.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Brasil</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/03/2018</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id09').style.
+
+ display='none'" class="cancelbtn">
+                Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id09');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id10" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id10')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Capenza</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Arvore linda; Grande arvore ou arvore produtiva.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Cabo Verde</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/04/2018</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id10').style.
+
+ display='none'" class="cancelbtn">
+                OK</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id10');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id11" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id11')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Cumala</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Cama; Sitio onde se dorme.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Sao Tome e Principe</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/02/2008</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id11').style.
+
+ display='none'" class="cancelbtn">
+                OK</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id11');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id12" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id12')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Cubata</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Tenda; Habitacao feita de panos; Casa.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Angola</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/07/2018</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id12').style.
+
+ display='none'" class="cancelbtn">
+                OK</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id12');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+<body>
+
+<div id="id13" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id13')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Cubango</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Fortaleza; Homem forte; O invencivel.</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Angola</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/08/2012</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id13').style.
+
+ display='none'" class="cancelbtn">
+                Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id13');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+<div id="id14" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id14')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>Cubata</h1>
+            </center>
+            <h2>SIGNIFICADO:</h2>
+            <h3>Animal antilope de Angola super forte..</h3>
+
+
+            <h2>PAIS DE ORIGEM:</h2>
+            <h3>Angola</h3>
+
+            <h2>PUBLICADO AOS:</h2>
+            <h3>05/11/2018</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id14').style.
+
+ display='none'" class="cancelbtn">
+                Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id14');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<body>
+<div id="id15" class="modal">
+
+    <form class="modal-content animate"
+          action="action_page.php">
+        <div class="imgcontainer">
+<span onclick="document
+.getElementById('id15')
+
+.style.display='none'"
+      class="close" title="Close Modal">
+    &times;</span>
+
+        </div>
+
+
+        <div class="container">
+            <center>
+                <h1>SOBRE O NOSSO APLICATIVO</h1>
+            </center>
+            <h2>IDEIA</h2>
+            <h3>Este aplicativo foi criado com o intuito de facilitar e tornar agil o acesso ao nosso glossario online.
+                Esta ideia deu-se pelo facto do mundo da tecnologia e comunicacao actualmente girar em volta dos aplicativos e da internet.</h3>
+
+
+            <h2>OBJECTIVO</h2>
+            <h3>O presente glossario tem como objectivo, como a sua propria definicao ja nos diz, mostrar ou dar a conhecer definicoes ou significados de termos desconhecidos ou mal conhecidos dos paises membros da CPLP.</h3>
+
+            <h2>CRIADORES</h2>
+            <h3>O presente aplicativo foi criado pelo aluno Áurio Venâncio, tecnico de gestão de sistemas informáticos, aluno do Makarenco e sócio gerente da MUSSOLE em seu projecto MUS APPS e pelo Sílvio Gongo, técnico de gestão de sistemas informáticos, aluno e finalista da área de formação de informática do IMIL.</h3>
+
+        </div>
+
+
+        <div class="container"
+             style="background-color:#f1f1f1">
+            <button type="button"
+                    onclick="document.getElementById
+ ('id15').style.
+
+ display='none'" class="cancelbtn">
+                OK</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // Get the modal
+
+    var modal = document.getElementById
+    ('id15');
+
+    // When the user clicks anywhere
+    outside of the modal, close it
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+
+<p>
+    <img src="banda.png" align="right" height="81" width="300">
+</p>
+<body>
+<right>
+    <div id="mySidenav" class="sidenav">
+        <b href="javascript:void(0)"
+           class="closebtn"
+           onclick="closeNav()">&times;</b>
+
+        <ul id="myaL">
+
+            <mySidenav onclick="document.
+getElementById('id15')
+
+.style.display='block'"
+                       style="width:auto;"><li>
+
+            </mySidenav>
+
+            <b href="#">Sobre</b>
+        </ul>
+        <body>
+        <a href="https://www.cplp.org" title="Visita"><code>Visite-nos</code></a>
+        <a href="https://www.cplp.org/id-2602.aspx" title="Avalie-nos"><code>Avalie-nos</code></a>
+        <a href="https://www.facebook.com/Mussole-Sc-335088373894788/" title="Colaboradores"><code>Colaboradores</code></a>
+        <a href="https://www.cplp.org/id-2602.aspx" title="Contactos"><code>Contacte-nos</code></a>
+
+    </div>
+
+    <div id="main">
+  <span style="font-size:30px;cursor:
+  pointer"
+        onclick="openNav()">&#9776;
+  </span>
+        <h2>GLOSARIO CPLP</h2>
+    </div>
+
+    <script>
+
+        function openNav() {
+            document.getElementById("mySidenav")
+                    .style.width="250px";
+
+            document.getElementById("main")
+                    .style.marginLeft="250px";
+
+            document.body.style.backgroundColor= "rgba(0,0,0,0.4)";
+
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav")
+                    .style.width = "0";
+
+            document.getElementById("main")
+                    .style.marginLeft= "0";
+
+            document.body.style.backgroundColor =
+                    "white";
+
+        }
+    </script>
+</right>
+</body>
+</head>
+
+<body>
+
+<input type="text" id="myInput"
+       onkeyup="myFunction()" placeholder= "Pesquisar..."title="Type in a name">
+
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id01')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+
+    <li><a href="#" class="header">A</a></li>
+    <li><a href="#">Ambringola</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id02')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+
+
+    <li><a href="#">Angwile</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id03')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+
+
+    <li><a href="#">Alombue</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id04')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+
+
+    <li><a href="#" class="header">B</a></li>
+    <li><a href="#">Buana</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id05')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+
+
+    <li><a href="#">Boelo</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id06')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+
+
+    <li><a href="#">Bwenguele</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id07')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+
+
+    <li><a href="#">Bengo</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id08')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+
+
+    <li><a href="#">Bwnguela</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id09')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+    <li><a href="#">Buala</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id10')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+
+
+    <li><a href="#" class="header">C</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id11')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+    <li><a href="#">Cangue</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id12')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+    <li><a href="#">Capenza</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id13')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+    <li><a href="#">Cumala</a></li>
+</ul>
+<ul id="myUL">
+
+    <myUL onclick="document.
+getElementById('id14')
+
+.style.display='block'"
+          style="width:auto;"><li>
+
+    </myUL>
+
+    <li><a href="#">Cubata</a></li>
+</ul>
+
+<script>
+
+    /* Declare variables */
+
+    function myFunction() {
+
+
+        var input, filter, ul, li, a, i;
+        input=document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+
+
+        /* Loop through all list items, and hide
+         those who don't match the search query */
+
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+
+            if (a.innerHTML.toUpperCase()
+                            .indexOf(filter) > -1) {
+                li[i].style.display = "";
+
+            } else {
+                li[i].style.display = "none";
+
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>

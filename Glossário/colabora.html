@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+device-width, initial-scale=1.0">
+    <title>COLABORADORES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+    .team-section{
+        overflow: hidden;
+        text-align: center;
+        background: #34495e;
+        padding: 60px;
+    }
+    .team-section h1{
+        text-transform: uppercase;
+        margin-bottom: 60px;
+        color: white;
+        font-size: 40px;
+    }
+    .border{
+        display: block;
+        margin: auto;
+        width: 160px;
+        height: 3px;
+        background: #3498db;
+        margin-bottom: 40px;
+    }
+    .ps{
+        margin-bottom: 40px;
+    }
+    .ps a{
+        display: inline-block;
+        margin: 0 30px;
+        width: 160px;
+        height: 160px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+    .ps a img{
+        width: 100%;
+        filter: grayscale(100%);
+        transition: 0.4s all;
+    }
+    .ps a:hover > img{
+        filter: none;
+    }
+    .section{
+        width: 600px;
+        margin: auto;
+        font-size: 20px;
+        color: white;
+        text-align: justify;
+        height: 0;
+        overflow: hidden;
+
+    }
+    .section:target{
+        height: auto;
+    }
+    .name{
+        display: block;
+        margin-bottom: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 22px;
+    }
+</style>
+<body>
+<div class="team-section">
+    <h1>COLABORADORES</h1>
+    <span class="border"></span>
+    <div class="ps">
+        <a href="#p1"><img src="p1.jpg" alt=""></a>
+        <a href="#p2"><img src="p2.png" alt=""></a>
+        <a href="#p3"><img src="p3.jpg" alt=""></a>
+
+    </div>
+    <div class="section" id="p1">
+        <span class="name">MUSSOLE</span>
+        <span class="border"></span>
+        <p>
+            A MUSSOLE é uma nova e jovem organização
+            composta por 7 integrantes
+            que viza no desenvolvimento de softwares,
+            estes como: Softwares de gestão,
+            aplicativos, programas desktop,
+            jogos, páginas web e outros.
+        </p>
+    </div>
+
+    <div class="section" id="p2">
+        <span class="name">INSTITUTO MÉDIO INDUSTRIAL DE LUANDA (IMIL)</span>
+        <span class="border"></span>
+        <p>
+            O Instituto Médio Industrial de Luanda
+            mais conhecido pelas abreviações IMIL
+            ou pelo nome antigo Makarenco é uma escola
+            especializada na formação de proficionais
+            para cursos técnicos.
+            O mesma é bastante conhecida pelo seu grande
+            potencial académico e contém em seu historial vários prémios,
+            parceria com grandes empresas como a UNITEL
+            e grandes projectos sendo um deles o Glossário da Língua Portuguesa
+            para a CPLP.
+        </p>
+    </div>
+
+    <div class="section" id="p3">
+        <span class="name">MINISTÉRIO DA EDUCAÇÃO (MED)</span>
+        <span class="border"></span>
+        <p>
+            O Ministério da Educação, mais conhecido pelas siglas MED
+            viza cuidar de todos os assuntos académicos e não só desse nosso
+            grande país que é Angola. A sua sede está localizada no 1º de Maio
+            em Luanda e actualmente tem como Ministra a Sra. Cândida Teixeira.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

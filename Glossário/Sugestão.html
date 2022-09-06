@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUGERIR</title>
+    <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+            font-family: sans-serif;
+            background: #34495e;
+        }
+        .box{
+            width: 400px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: #191919;
+            text-align: center;
+        }
+        .box h1{
+            color: orange;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .box input[type = "text"],.box input[type ="password"]{
+            border:0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        .box input[type = "text"]:focus,.box input[type ="password"]:focus{
+            width: 280px;
+            border-color: darkorange;
+        }
+        .box input[type = "submit"] {
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 14px 40px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+        .box input[type = "submit"]:hover{
+            background:#2ecc71;
+        }
+        p{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<form class="box" action="login.html" method="post">
+    <h1>Sugestões</h1>
+    <input type="text" name="" placeholder="Insira a palavra...">
+    <input type="text" name="" placeholder="Insira o seu significado...">
+    <input type="text" name="" placeholder="Insira a institui&ccedil&atilde;o...">
+    <select name="shipping" id="shipping">
+        <option value="PAÍS DE ORIGEM">Selecione o país de origem</option>
+        <option value="Angola">ANGOLA</option>
+        <option value="CABO VERDE">CABO VERDE</option>
+        <option value="BRASIL">BRASIL</option>
+        <option value="MOÇAMBIQUE">MO&CcedilAMBIQUE</option>
+        <option value="PORTUGAL">PORTUGAL</option>
+        <option value="SÃO TOMÉ E PRÍNCIPE">SÃO TOMÉ E PRÍNCIPE</option>
+        <option value="GUINÉ BISSAU">GUINÉ BISSAU</option>
+        <option value="TIMOR-LESTE">TIMOR-LESTE</option>
+    </select>
+    <p>Insira a data de publica&ccedil&atilde;o:</p>
+    <input type="date" name="bday" min="0000-01-02"><br><br>
+
+    <input type="submit" name="" value="Enviar sugest&atilde;o">
+</form>
+</body>
+</html>
